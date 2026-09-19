@@ -161,7 +161,8 @@
 <body class="bg-paper text-ink dark:bg-black dark:text-paper transition-colors duration-300">
 
   <!-- NAV -->
-  <header
+  <header x-effect="document.querySelector('img[alt=\" Jazz Symphonic\"]')?.setAttribute('src', dark
+    ? 'img/logo-white.svg?v=2' : 'img/logo.svg' )"
     class="sticky top-0 z-50 backdrop-blur bg-paper/85 dark:bg-black/85 transition-colors duration-300 font-playfair">
     <div class="max-w-[1180px] max-h-[80px] mx-auto px-6 md:px-8 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3" aria-label="Jazz Symphonic home">
