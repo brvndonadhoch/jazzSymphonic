@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{
+    dark: false,
+    menuOpen: false
+  }" x-bind:class="dark ? 'dark' : ''">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jazz Symphonic - Nairobi's Jazz &amp; Classical Music Journal</title>
+  <link rel="icon" type="image/svg+xml" href="logo-white.svg" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="logo.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F2E9D8" media="(prefers-color-scheme: light)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Archivo:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: '#14110F',
+            inksoft: '#1D1914',
+            paper: '#F2E9D8',
+            paperdim: '#E7DBC3',
+            brass: '#C89B3C',
+            brasslight: '#cc4423',
+            rust: '#A9432A',
+            teal: '#24423B',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            sans: ['Archivo', 'sans-serif'],
+            playfair: ['Playfair Display', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js" defer></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Archivo', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Fraunces', serif;
+    }
+
+    ::selection {
+      background: #C89B3C;
+      color: #14110F;
+    }
+
+    [x-cloak] {
+      display: none !important;
+    }
+
+    .no-scrollbar {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    @media (min-width: 1108px) {
+      .partner-logos {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        overflow-x: visible;
+      }
+    }
+
+    .groove {
+      border-radius: 9999px;
+      background-color: #a9432a;
+      background-image:
+        repeating-radial-gradient(circle at center,
+          transparent 0px, transparent 10px,
+          rgba(20, 17, 15, 0.18) 10px, rgba(20, 17, 15, 0.18) 11px);
+    }
+
+    .dark .groove {
+      background-color: #F2E9D8;
+      background-image:
+        repeating-radial-gradient(circle at center,
+          transparent 0px, transparent 10px,
+          rgba(20, 17, 15, 0.18) 10px, rgba(20, 17, 15, 0.18) 11px);
+    }
+
+    .groove::before {
+      content: "";
+      position: absolute;
+      inset: 38%;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 35% 30%, #A9432A, #6f2a19 70%);
+    }
+
+    .groove::after {
+      content: "";
+      position: absolute;
+      inset: 47%;
+      border-radius: 9999px;
+      background: #F2E9D8;
+    }
+
+    .dark .groove::after {
+      background: #14110F;
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .rise {
+      animation: riseIn .7s cubic-bezier(.2, .7, .3, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rise {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-paper text-ink dark:bg-black dark:text-paper transition-colors duration-300">
+
+  <!-- NAV -->
+  <header
+    class="sticky top-0 z-50 backdrop-blur bg-paper/85 dark:bg-black/85 transition-colors duration-300 font-playfair">
+    <div class="max-w-[1180px] max-h-[80px] mx-auto px-6 md:px-8 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3" aria-label="Jazz Symphonic home">
+        <span class="w-32 h-32 flex-shrink-0 inline-block"><img :src="dark ? 'logo-white.svg' : 'logo.svg'"
+            alt="Jazz Symphonic" class="w-full h-full object-contain"><svg class="hidden" viewBox="0 0 798.73 799.51"
+            xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+            <path d="M184.23,273.173v.24c-1.45.82-2.86,1.679-4.24,2.6C181.36,275,182.78,274.052,184.23,273.173Z" />
+            <path
+              d="M58.61,513.663q0,1.918.12,3.81v-7.711Q58.61,511.7,58.61,513.663Zm125.62-7.921v15.83a62.9,62.9,0,0,0,0-15.83Z" />
+            <path d="M119.21,510.983a16.3,16.3,0,0,0,.52,2.24v-.971A11.652,11.652,0,0,1,119.21,510.983Z" />
+            <path
+              d="M215.53,265.283a64.789,64.789,0,0,0-11.3.989,64.086,64.086,0,0,0-19.94,7.11l-.06.031c-1.45.82-2.86,1.679-4.24,2.6l-.27.18a64.358,64.358,0,0,0-20.85,23.091H142.73v8h8.5v23h-8.5v7h8.5v24h-8.5v7h8.5v142.76c-.03.089-.07.18-.1.269a17,17,0,0,1-31.4.94v.971a16.3,16.3,0,0,1-.52-2.24,11.652,11.652,0,0,0,.52,1.269V488.283h8v-7h-8v-23h8v-7h-8v-24h-61v90.19a63.054,63.054,0,0,0,61,59.219c.65.02,1.29.031,1.94.031a62.762,62.762,0,0,0,29.46-7.3.43.43,0,0,1,.1-.051,63.1,63.1,0,0,0,32.04-42.2c.41-1.841.73-3.7.96-5.6V385.582l.06.03v-86.9a32.245,32.245,0,0,1,28.4-22.429h20.04v-11Zm-144.01,230a2.973,2.973,0,0,1-2.95,3,1.84,1.84,0,0,1-.41-.041,2.955,2.955,0,0,1-2.54-2.959v-60a2.972,2.972,0,0,1,2.95-3,2.9,2.9,0,0,1,2.08.88,2.981,2.981,0,0,1,.87,2.12Z" />
+            <path d="M184.23,273.173v.24c-1.45.82-2.86,1.679-4.24,2.6C181.36,275,182.78,274.052,184.23,273.173Z" />
+            <rect x="237.73" y="259.283" width="14" height="23" />
+            <path
+              d="M187.73,312.283h2.843a13.157,13.157,0,0,1,13.157,13.157v56.843a16,16,0,0,1-16,16h0a0,0,0,0,1,0,0v-86A0,0,0,0,1,187.73,312.283Z" />
+            <path
+              d="M187.73,427.283h2.843a13.157,13.157,0,0,1,13.157,13.157v56.843a16,16,0,0,1-16,16h0a0,0,0,0,1,0,0v-86A0,0,0,0,1,187.73,427.283Z" />
+            <ellipse cx="138.73" cy="456.783" rx="6" ry="9" />
+            <ellipse cx="130.73" cy="364.283" rx="6" ry="9" />
+            <ellipse cx="130.73" cy="334.283" rx="6" ry="9" />
+            <ellipse cx="130.73" cy="304.283" rx="6" ry="9" />
+            <ellipse cx="138.73" cy="487.283" rx="6" ry="9" />
+            <path d="M42.16,395.283a23.825,23.825,0,0,0-.43,4.5v-4.5Z" />
+            <path d="M42.94,395.283h-.78c.01-.081.03-.151.04-.231C42.45,395.132,42.69,395.212,42.94,395.283Z" />
+            <path
+              d="M135.73,395.522v9.04a23.5,23.5,0,0,1-22.5,16.721H55.38a23.758,23.758,0,0,1-13.22-26h.78a158.864,158.864,0,0,0,46.16,7h1.07A158.689,158.689,0,0,0,135.73,395.522Z" />
+            <path
+              d="M333.75,293.887q-8.5.21-17.32.211t-16.91-.211q-8.085-.21-12.91-.42v4.2a33.127,33.127,0,0,1,10.29,1.569,7.6,7.6,0,0,1,4.72,5.04q1.155,3.677,1.16,11.451V431.017q0,17.43-3.15,27.51t-9.35,14.28a28.294,28.294,0,0,1-14.8,4.62v4.2q22.05,0,35.28-9.769T327.98,447.4a93.762,93.762,0,0,0,2.62-16.59q.735-9.45.84-19.53t.11-18.69V315.728q0-7.772,1.15-11.451a7.592,7.592,0,0,1,4.62-5.04q3.465-1.365,10.4-1.569v-4.2Q342.245,293.679,333.75,293.887Z" />
+            <path
+              d="M483.27,434.9q-3.675-2.835-6.82-10.39l-51.03-131.67q-2.52.212-5.46.21c-1.97,0-3.78-.069-5.46-.21L366.41,417.158q-4.215,10.918-8.72,15.329a19.568,19.568,0,0,1-9.13,5.46v4.2a68.542,68.542,0,0,1,7.24-.53q4.095-.1,8.72-.1,6.3,0,12.6.1c4.2.07,8.53.25,13.02.53v-4.2q-8.82-.21-13.65-3.15-4.845-2.94-5.04-10.4t5.25-21.31l6.64-17.22,1.62-4.2L407.5,323.2l21.66,58.471,1.56,4.2,12.76,34.44q4.2,10.71,1.26,13.96c-1.97,2.17-6.51,3.4-13.65,3.68v4.2q5.04-.42,13.02-.53c5.32-.07,11.05-.1,17.22-.1q7.98,0,15.64.1t13.13.53v-4.2A12.95,12.95,0,0,1,483.27,434.9ZM383.21,381.668l-2.1,4.2h62.58v-4.2Z" />
+            <path
+              d="M605.18,293.467q-13.02.42-28.14.52t-28.77.111q-10.71,0-24.26-.111t-24.67-.52q.825,9.03,1.15,17.43t.32,12.81q0,4.83-.11,9.03a69.6,69.6,0,0,1-.52,7.35h4.83q1.89-15.96,6.93-24.989a29.766,29.766,0,0,1,13.23-12.921,44.642,44.642,0,0,1,19.32-3.88h28.77l-76.02,139.65v4.2q12.795-.42,27.3-.53t27.51-.1q11.55,0,26.14.1t26.15.53q-.84-9.03-1.16-17.43t-.31-12.809q0-11.131.63-18.06h-4.83q-1.065,12.178-4.62,20.579a37.272,37.272,0,0,1-9.03,13.33,34.826,34.826,0,0,1-12.29,7.25,46.561,46.561,0,0,1-15.01,2.31H529.58l75.6-139.649Z" />
+            <path
+              d="M730.97,293.467q-13.02.42-28.14.52t-28.77.111q-10.71,0-24.26-.111t-24.67-.52q.825,9.03,1.15,17.43t.32,12.81q0,4.83-.11,9.03a69.6,69.6,0,0,1-.52,7.35h4.83q1.89-15.96,6.93-24.989a29.766,29.766,0,0,1,13.23-12.921,44.642,44.642,0,0,1,19.32-3.88h28.77l-76.02,139.65v4.2q12.795-.42,27.3-.53,14.49-.1,27.51-.1,11.55,0,26.14.1t26.15.53q-.84-9.03-1.16-17.43t-.31-12.809q0-11.131.63-18.06h-4.83q-1.065,12.178-4.62,20.579a37.272,37.272,0,0,1-9.03,13.33,34.826,34.826,0,0,1-12.29,7.25,46.561,46.561,0,0,1-15.01,2.31H655.37l75.6-139.649Z" />
+            <path
+              d="M311.85,521.867a19.481,19.481,0,0,0-4.72-5.209q-3-2.356-6.75-4.761c-2.45-1.549-4.64-2.97-6.57-4.239a17.8,17.8,0,0,1-4.53-4.131,8.946,8.946,0,0,1-1.65-5.51,7.765,7.765,0,0,1,2.51-6.039,9.066,9.066,0,0,1,6.34-2.281,10.37,10.37,0,0,1,6.78,2.17,13.641,13.641,0,0,1,4.05,5.63,22.543,22.543,0,0,1,1.62,7.12h1.72q0-4.875.04-7.87c.02-2,.07-3.61.15-4.839s.14-2.291.19-3.191H309.3q-.45,3.3-1.65,3.3a2.516,2.516,0,0,1-1.09-.26c-.37-.17-.86-.44-1.46-.79a23.227,23.227,0,0,0-3.67-1.95,16.068,16.068,0,0,0-6.08-.9,18.775,18.775,0,0,0-7.31,1.43,12.826,12.826,0,0,0-5.55,4.35,12.363,12.363,0,0,0-2.14,7.5,13.312,13.312,0,0,0,1.84,7.12,18.343,18.343,0,0,0,4.91,5.25q3.075,2.25,6.6,4.5a48.886,48.886,0,0,1,8.36,6.19,10.05,10.05,0,0,1,3.19,7.61q0,4.875-2.92,7.161a10.534,10.534,0,0,1-6.68,2.289,11.562,11.562,0,0,1-7.69-2.43,14.386,14.386,0,0,1-4.27-6.489,33.171,33.171,0,0,1-1.69-8.7h-1.72c0,3.65-.02,6.67-.04,9.07s-.05,4.34-.08,5.81-.08,2.77-.18,3.87h1.72q.45-3.3,1.65-3.3a5.419,5.419,0,0,1,2.55,1.049,28.091,28.091,0,0,0,4.2,1.87,20.06,20.06,0,0,0,6.68.9,21.907,21.907,0,0,0,8.4-1.57,13.877,13.877,0,0,0,6.11-4.761,13.554,13.554,0,0,0,2.29-8.07A13.087,13.087,0,0,0,311.85,521.867Z" />
+            <path
+              d="M360.83,489.168c-.9.049-1.98.079-3.23.079-1.35,0-2.77-.03-4.27-.079s-3.03-.1-4.58-.151v1.5a9.912,9.912,0,0,1,4.84,1.091,3.716,3.716,0,0,1,1.65,3.529c-.03,1.67-.81,4.031-2.36,7.08l-8.31,16.56-12.09-23.23q-1.05-2.025-.57-3.12a2.734,2.734,0,0,1,1.95-1.46,13.546,13.546,0,0,1,3.34-.369v-1.581q-2.7.15-5.85.19c-2.1.03-4.05.04-5.85.04-1.4,0-2.7-.03-3.9-.079s-2.35-.1-3.45-.151V490.6a3.216,3.216,0,0,1,1.84.75,11.7,11.7,0,0,1,2.51,3.449l14.93,27.561,2.62,4.839h2.03l3.97-7.88,10.8-21.45a25.833,25.833,0,0,1,3.41-5.28,6.411,6.411,0,0,1,3.04-2.07v-1.5C362.55,489.067,361.73,489.117,360.83,489.168Zm-12.6,50.849a2.709,2.709,0,0,1-1.73-1.8,13.648,13.648,0,0,1-.45-4.049v-16.2l-3.75,5.48-4.87-4.65v15.371a14.573,14.573,0,0,1-.42,4.049,2.581,2.581,0,0,1-1.68,1.8,14.912,14.912,0,0,1-3.83.6v1.5c1.1-.1,2.58-.16,4.43-.19s3.8-.03,5.85-.03c1.9,0,3.77.011,5.62.03s3.38.09,4.58.19v-1.5A14.574,14.574,0,0,1,348.23,540.017Z" />
+            <path
+              d="M423.49,492.887a2.674,2.674,0,0,1,1.69-1.8,12.088,12.088,0,0,1,3.82-.57v-1.5q-1.875.075-4.65.151c-1.85.049-3.73.079-5.62.079H414.6l-15.39,40.99-16.03-41.22c-1.05.05-2.32.1-3.79.151s-2.94.079-4.39.079c-1.25,0-2.5-.03-3.75-.079s-2.28-.1-3.07-.151v1.5a11.943,11.943,0,0,1,3.75.57,2.806,2.806,0,0,1,1.72,1.8,13.517,13.517,0,0,1,.45,4.08v35.55a19.584,19.584,0,0,1-.45,4.73,3.688,3.688,0,0,1-1.72,2.43,9.637,9.637,0,0,1-3.75.94v1.5c.79-.1,1.82-.16,3.07-.19s2.5-.03,3.75-.03c1.3,0,2.69.011,4.16.03s2.69.09,3.64.19v-1.5a12.788,12.788,0,0,1-4.57-.97,3.646,3.646,0,0,1-1.95-2.51,20.956,20.956,0,0,1-.45-4.92v-38.4l19.35,48.6h1.2l18.07-48.111v39.861a13.648,13.648,0,0,1-.45,4.049,2.709,2.709,0,0,1-1.76,1.8,15.513,15.513,0,0,1-3.86.6v1.5c1.09-.1,2.57-.16,4.42-.19s3.83-.03,5.93-.03c1.89,0,3.77.011,5.62.03s3.4.09,4.65.19v-1.5a14.743,14.743,0,0,1-3.82-.6,2.594,2.594,0,0,1-1.69-1.8,14.647,14.647,0,0,1-.41-4.049v-37.2A14.512,14.512,0,0,1,423.49,492.887Z" />
+            <path
+              d="M472.05,493.217q-4.725-4.125-14.25-4.119c-.9,0-2.44.019-4.61.07s-4.47.079-6.87.079c-1.8,0-3.61-.03-5.43-.079s-3.32-.1-4.47-.151v1.5a12.285,12.285,0,0,1,3.79.57,2.688,2.688,0,0,1,1.73,1.8,14.9,14.9,0,0,1,.41,4.08v37.2a15.048,15.048,0,0,1-.41,4.049,2.614,2.614,0,0,1-1.69,1.8,14.912,14.912,0,0,1-3.83.6v1.5c1.25-.1,2.79-.16,4.62-.19s3.73-.03,5.73-.03q3.45,0,6.68.03c2.15.03,3.9.09,5.25.19v-1.57a21.728,21.728,0,0,1-4.88-.53,3.194,3.194,0,0,1-2.25-1.84,10.978,10.978,0,0,1-.6-4.16V520.668h5.18a27.769,27.769,0,0,0,10.12-1.57,16.852,16.852,0,0,0,6.3-4.091,14.475,14.475,0,0,0,3.27-5.48,18.853,18.853,0,0,0,.93-5.66A13.481,13.481,0,0,0,472.05,493.217Zm-5.36,18.6a9.974,9.974,0,0,1-3.6,5.33q-2.67,2.025-7.69,2.021h-4.43v-22.2q0-3.9,1.02-5.17c.67-.85,2.08-1.28,4.23-1.28q6.3,0,8.85,3.53t2.55,10.65A26.139,26.139,0,0,1,466.69,511.817Z" />
+            <path
+              d="M497.7,496.967a13.517,13.517,0,0,1,.45-4.08,2.783,2.783,0,0,1,1.72-1.8,11.892,11.892,0,0,1,3.75-.57v-1.5q-1.8.075-4.53.151c-1.83.049-3.69.079-5.59.079-2.1,0-4.06-.03-5.89-.079s-3.31-.1-4.46-.151v1.5a12.338,12.338,0,0,1,3.79.57,2.673,2.673,0,0,1,1.72,1.8,14.512,14.512,0,0,1,.41,4.08v37.2a14.647,14.647,0,0,1-.41,4.049,2.594,2.594,0,0,1-1.69,1.8,14.821,14.821,0,0,1-3.82.6v1.5c1.15-.1,2.63-.16,4.46-.19s3.79-.03,5.89-.03c1.9,0,3.76.011,5.59.03s3.33.09,4.53.19v-1.5a14.574,14.574,0,0,1-3.75-.6,2.7,2.7,0,0,1-1.72-1.8,13.648,13.648,0,0,1-.45-4.049Zm-3.38,17.7v1.5h29.63v-1.5Zm35.33-21.781a2.783,2.783,0,0,1,1.72-1.8,11.892,11.892,0,0,1,3.75-.57v-1.5q-1.65.075-4.35.151c-1.8.049-3.75.079-5.85.079-1.85,0-3.71-.03-5.58-.079s-3.44-.1-4.69-.151v1.5a12.338,12.338,0,0,1,3.79.57,2.673,2.673,0,0,1,1.72,1.8,14.512,14.512,0,0,1,.41,4.08v37.2a14.647,14.647,0,0,1-.41,4.049,2.594,2.594,0,0,1-1.69,1.8,14.821,14.821,0,0,1-3.82.6v1.5c1.25-.1,2.81-.16,4.69-.19s3.73-.03,5.58-.03q3.15,0,5.85.03c1.8.03,3.25.09,4.35.19v-1.5a14.574,14.574,0,0,1-3.75-.6,2.7,2.7,0,0,1-1.72-1.8,13.648,13.648,0,0,1-.45-4.049v-37.2A13.517,13.517,0,0,1,529.65,492.887Z" />
+            <path
+              d="M589.12,500.457a21.867,21.867,0,0,0-8.66-9.26,25.414,25.414,0,0,0-12.94-3.23,23.39,23.39,0,0,0-12.82,3.53,24.424,24.424,0,0,0-8.74,9.82,35.869,35.869,0,0,0-.11,29.33,21.888,21.888,0,0,0,8.62,9.3,25.369,25.369,0,0,0,12.98,3.221,23.624,23.624,0,0,0,12.82-3.521,23.967,23.967,0,0,0,8.78-9.83,32.476,32.476,0,0,0,3.15-14.7A32.017,32.017,0,0,0,589.12,500.457Zm-7.98,28.651a22.553,22.553,0,0,1-5.33,9.339,11.082,11.082,0,0,1-8.06,3.37,11.841,11.841,0,0,1-8.03-3.18,21.477,21.477,0,0,1-5.7-9.08,41.194,41.194,0,0,1-2.1-13.84A45.51,45.51,0,0,1,553.8,502a22.031,22.031,0,0,1,5.32-9.3,11.214,11.214,0,0,1,8.1-3.38,11.7,11.7,0,0,1,7.99,3.19,21.908,21.908,0,0,1,5.7,9.04,40.311,40.311,0,0,1,2.14,13.871A44.97,44.97,0,0,1,581.14,529.108Z" />
+            <path
+              d="M644.62,489.168c-1.25.049-2.5.079-3.75.079-1.3,0-2.7-.03-4.2-.079s-2.7-.1-3.6-.151v1.5a11.149,11.149,0,0,1,4.5.94,3.875,3.875,0,0,1,1.99,2.51,19,19,0,0,1,.49,4.951v29.25l-27.38-39.151c-.8.05-1.72.1-2.77.151s-2.13.079-3.23.079c-1.25,0-2.5-.03-3.75-.079s-2.27-.1-3.07-.151v1.5a11.892,11.892,0,0,1,3.75.57,2.783,2.783,0,0,1,1.72,1.8,13.517,13.517,0,0,1,.45,4.08v35.55a19.584,19.584,0,0,1-.45,4.73,3.656,3.656,0,0,1-1.72,2.43,9.587,9.587,0,0,1-3.75.94v1.5c.8-.1,1.82-.16,3.07-.19s2.5-.03,3.75-.03q1.95,0,4.17.03c1.47.03,2.68.09,3.63.19v-1.5a12.788,12.788,0,0,1-4.57-.97,3.673,3.673,0,0,1-1.95-2.51,20.956,20.956,0,0,1-.45-4.92v-36l31.8,46.2h2.47v-43.8a20.742,20.742,0,0,1,.42-4.759,3.653,3.653,0,0,1,1.68-2.44,8.776,8.776,0,0,1,3.83-.9v-1.5C646.9,489.067,645.87,489.117,644.62,489.168Z" />
+            <path
+              d="M669.67,492.887a2.8,2.8,0,0,1,1.73-1.8,11.892,11.892,0,0,1,3.75-.57v-1.5c-1.2.05-2.71.1-4.54.151s-3.69.079-5.59.079c-2.1,0-4.06-.03-5.88-.079s-3.32-.1-4.47-.151v1.5a12.285,12.285,0,0,1,3.79.57,2.688,2.688,0,0,1,1.73,1.8,14.9,14.9,0,0,1,.41,4.08v37.2a15.048,15.048,0,0,1-.41,4.049,2.614,2.614,0,0,1-1.69,1.8,14.912,14.912,0,0,1-3.83.6v1.5c1.15-.1,2.64-.16,4.47-.19s3.78-.03,5.88-.03c1.9,0,3.77.011,5.59.03s3.34.09,4.54.19v-1.5a14.574,14.574,0,0,1-3.75-.6,2.709,2.709,0,0,1-1.73-1.8,13.648,13.648,0,0,1-.45-4.049v-37.2A13.517,13.517,0,0,1,669.67,492.887Z" />
+            <path
+              d="M726.15,523.817h-1.73a48.84,48.84,0,0,1-1.31,7.69,12.058,12.058,0,0,1-2.89,5.06,11.575,11.575,0,0,1-5.25,3.791,18.231,18.231,0,0,1-6.37,1.24,12.836,12.836,0,0,1-6.79-1.841,15.635,15.635,0,0,1-5.17-5.25,26.846,26.846,0,0,1-3.27-8.17,46.335,46.335,0,0,1-1.12-10.62,49.169,49.169,0,0,1,1.05-10.5,29.7,29.7,0,0,1,3.04-8.32,15.236,15.236,0,0,1,4.91-5.44,12.014,12.014,0,0,1,6.75-1.91,18.563,18.563,0,0,1,6.67,1.2,12.44,12.44,0,0,1,5.33,3.9,13.387,13.387,0,0,1,2.14,2.92,15.1,15.1,0,0,1,1.27,3.6c.33,1.4.66,3.2,1.01,5.4h1.73q0-6.675.07-10.68t.23-6.87h-1.73c-.2,2.151-.56,3.521-1.08,4.091s-1.29.49-2.29-.26a28.278,28.278,0,0,0-5.66-3.421,19.7,19.7,0,0,0-8.14-1.46,23.424,23.424,0,0,0-12.83,3.53,24.329,24.329,0,0,0-8.73,9.82,35.922,35.922,0,0,0-.12,29.33,21.91,21.91,0,0,0,8.63,9.3,25.332,25.332,0,0,0,12.97,3.221,18.92,18.92,0,0,0,7.99-1.461,39.775,39.775,0,0,0,5.89-3.41c1.1-.7,1.89-.78,2.36-.23s.81,1.9,1.01,4.05h1.73c-.1-1.949-.18-4.329-.23-7.16S726.15,528.418,726.15,523.817Z" />
+          </svg></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-9 text-sm font-medium">
+        <a href="#top"
+          class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">Home</a>
+        <a href="#stories"
+          class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">Stories</a>
+        <a href="#events"
+          class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">Events</a>
+        <a href="#reviews"
+          class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">Reviews</a>
+        <a href="about.html"
+          class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">About</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Theme toggle -->
+        <button @click="dark = !dark" type="button"
+          class="w-9 h-9 rounded-full border border-ink/15 dark:border-paper/15 flex items-center justify-center hover:border-rust dark:hover:border-brasslight transition"
+          :aria-label="dark ? 'Switch to light mode' : 'Switch to dark mode'">
+          <svg x-show="!dark" xmlns="http://www.w3.org/2000/svg" class="w-[10.8px] h-[10.8px]" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4.5" />
+            <path
+              d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+          </svg>
+          <svg x-show="dark" x-cloak xmlns="http://www.w3.org/2000/svg" class="w-[10.8px] h-[10.8px]"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M20 14.3A8.5 8.5 0 1 1 9.7 4a6.7 6.7 0 0 0 10.3 10.3Z" />
+          </svg>
+        </button>
+
+        <a href="#events"
+          class="hidden md:inline-flex items-center gap-2 text-sm font-semibold px-6 h-[34px] rounded-lg bg-rust text-paper hover:bg-[#8f3821] transition">See
+          What's On</a>
+
+        <button @click="menuOpen = !menuOpen" class="md:hidden w-10 h-10 flex items-center justify-center"
+          aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <path x-show="!menuOpen" d="M4 6h16M4 12h16M4 18h16" />
+            <path x-show="menuOpen" x-cloak d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav x-show="menuOpen" x-cloak x-transition
+      class="md:hidden border-t border-ink/10 dark:border-paper/10 px-6 py-5 flex flex-col gap-4 text-sm font-medium bg-paper dark:bg-black">
+      <a href="#top" @click="menuOpen=false">Home</a>
+      <a href="#stories" @click="menuOpen=false">Stories</a>
+      <a href="#events" @click="menuOpen=false">Events</a>
+      <a href="#reviews" @click="menuOpen=false">Reviews</a>
+      <a href="about.html" @click="menuOpen=false">About</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative border-b border-ink/10 dark:border-paper/10 overflow-hidden">
+    <div
+      class="max-w-[1180px] mx-auto px-6 md:px-8 pt-14 md:pt-20 grid md:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+      <div>
+        <h1 class="rise text-[40px] leading-[1.05] md:text-[64px] md:leading-[1.02] font-semibold max-w-[12.5ch]">
+          Journey Through <br>The Kenyan <br><em class="italic font-medium text-rust ">Live Music
+            Scene.</em>
+        </h1>
+        <p class="rise [animation-delay:.08s] mt-6 max-w-[44ch] text-lg text-ink/70 dark:text-paper/65">
+          Concert reviews, artist profiles, and the city's live-music calendar - jazz, classical, and everything that
+          happens when the two share a stage.
+        </p>
+        <div class="rise [animation-delay:.16s] flex flex-wrap gap-4 mt-8">
+          <a href="#stories"
+            class="inline-flex items-center gap-2 text-sm font-semibold px-6 h-[40px] rounded-lg bg-rust text-paper hover:bg-[#8f3821] transition">Read
+            the latest</a>
+          <a href="#events"
+            class="inline-flex items-center gap-2 text-sm font-semibold px-6 h-[40px] rounded-lg border border-ink/20 dark:border-paper/20 hover:border-rust dark:hover:border-brasslight hover:text-rust dark:hover:text-brasslight transition">Upcoming
+            events</a>
+        </div>
+      </div>
+
+      <div class="rise [animation-delay:.1s] relative h-[300px] md:h-[420px]">
+        <div
+          class="groove absolute right-[-60px]  top-1/2 -translate-y-1/2 w-[340px] h-[340px] md:w-[520px] md:h-[520px] border border-ink/10 dark:border-paper/10">
+        </div>
+        <div
+          class="absolute left-0 bottom-0 md:-bottom-2 w-full md:w-[456px] bg-white dark:bg-inksoft border-none shadow-2xl shadow-black/10 dark:shadow-black/50 rounded-lg overflow-hidden">
+          <div class="h-[150px] md:h-[190px] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2024/11/REFLECTIONS-45-768x465.jpg"
+              alt="Mariah Gichu performing live" class="w-full object-cover saturate-[0.9]">
+          </div>
+          <div class="p-4">
+            <div class="text-[16.1px] font-semibold text-rust dark:text-brasslight">Artist Spotlight</div>
+            <h4 class="text-base leading-snug mt-2 font-semibold">Mariah Gichu: a troubadour journeying through time
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-[1180px] mx-auto px-6 md:px-8 pt-10 pb-12 flex flex-col gap-1.5 opacity-40">
+
+    </div>
+  </section>
+
+  <!-- LATEST STORIES -->
+  <section id="stories" class="py-16 md:py-20 border-b border-ink/10 dark:border-paper/10">
+    <div class="max-w-[1180px] mx-auto px-6 md:px-8">
+      <div class="flex justify-between items-end flex-wrap gap-6 mb-10">
+        <h2 class="text-3xl font-semibold">Latest stories</h2>
+        <a href="https://www.jazzsymphonic.com/blog/"
+          class="text-sm font-semibold text-rust dark:text-brasslight border-b border-rust dark:border-brasslight pb-0.5">View
+          all</a>
+      </div>
+    </div>
+    <div class="max-w-[1180px] mx-auto px-6 md:px-8">
+      <div
+        class="grid md:grid-cols-3 gap-px bg-ink/10 dark:bg-paper/10 border border-ink/10 dark:border-paper/10 rounded-xl overflow-hidden">
+
+        <article class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden group">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2024/11/NBO-Orchestra-3-768x512.jpg"
+              alt="Nairobi Orchestra performing Tchaikovsky"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Classical Music</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Tchaikovsky's thunder and Kenya's rhythms</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">The Nairobi Orchestra's two-day sold-out
+              concert put together an enigmatic program pairing European classics with home-grown percussion.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith · Nov 20</span>
+          </div>
+        </article>
+
+        <article class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/04/NGEWA-Artwork-Front-768x768.jpg"
+              alt="Ngewa percussion album artwork"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Artist Spotlight</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Ngewa: Kasiva Mutua's rhythmical tales on percussion
+            </h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">A closer look at the percussionist's latest
+              body of work, and the stories carried in every strike of the drum.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith · Apr 26</span>
+          </div>
+        </article>
+
+        <article class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/05/Peter-Nyabuto-Quaint-Photography.jpg"
+              alt="Nairobi Music Society concert"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Events</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Nairobi Music Society &amp; Nairobi Orchestra: Love,
+              Liberty</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">An exhilarating concert at the Kenya
+              National Theatre brought two of the city's leading ensembles onto one stage.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith · May 4</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="py-16 md:py-20 border-b border-ink/10 dark:border-paper/10">
+    <div class="max-w-[1180px] mx-auto px-6 md:px-8">
+      <div class="flex justify-between items-end flex-wrap gap-6 mb-10">
+        <h2 class="text-3xl font-semibold">Upcoming &amp; Recent Events</h2>
+        <a href="https://www.jazzsymphonic.com/blog/events"
+          class="text-sm font-semibold text-rust dark:text-brasslight border-b border-rust dark:border-brasslight pb-0.5">View
+          all</a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-7">
+
+        <div class="border border-ink/10 dark:border-paper/10 flex flex-col rounded-lg overflow-hidden">
+          <div
+            class="flex items-center gap-3.5 px-4.5 py-3.5 border-b border-ink/10 dark:border-paper/10 bg-paperdim dark:bg-inksoft">
+            <span class="font-display font-bold text-xl text-rust dark:text-brasslight">05</span>
+            <span class="text-xs text-ink/55 dark:text-paper/55 uppercase tracking-wide">Apr · Kilifi</span>
+          </div>
+          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/04/BTBL-TWT2-768x256.jpg"
+            alt="Beneath the Baobabs Live" class="aspect-[16/10] object-cover">
+          <div class="p-5">
+            <h3 class="text-[17.5px] leading-snug font-semibold">Beneath the Baobabs Live</h3>
+            <p class="text-sm text-ink/60 dark:text-paper/55 mt-2.5">A Kenyan live-music experience under the coastal
+              canopy of Kilifi.</p>
+          </div>
+        </div>
+
+        <div class="border border-ink/10 dark:border-paper/10 flex flex-col rounded-lg overflow-hidden">
+          <div
+            class="flex items-center gap-3.5 px-4.5 py-3.5 border-b border-ink/10 dark:border-paper/10 bg-paperdim dark:bg-inksoft">
+            <span class="font-display font-bold text-xl text-rust dark:text-brasslight">28</span>
+            <span class="text-xs text-ink/55 dark:text-paper/55 uppercase tracking-wide">Nov · Nairobi</span>
+          </div>
+          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2024/11/REFLECTIONS-45-768x465.jpg"
+            alt="Mariah Gichu live performance" class="aspect-[16/10] object-cover">
+          <div class="p-5">
+            <h3 class="text-[17.5px] leading-snug font-semibold">Reflections: Mariah Gichu live</h3>
+            <p class="text-sm text-ink/60 dark:text-paper/55 mt-2.5">A darkened auditorium, a phone flashlight for a
+              path, and a voice that carries through it.</p>
+          </div>
+        </div>
+
+        <div class="border border-ink/10 dark:border-paper/10 flex flex-col rounded-lg overflow-hidden">
+          <div
+            class="flex items-center gap-3.5 px-4.5 py-3.5 border-b border-ink/10 dark:border-paper/10 bg-paperdim dark:bg-inksoft">
+            <span class="font-display font-bold text-xl text-rust dark:text-brasslight">20</span>
+            <span class="text-xs text-ink/55 dark:text-paper/55 uppercase tracking-wide">Nov · Nairobi</span>
+          </div>
+          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2024/11/NBO-Orchestra-3-768x512.jpg"
+            alt="Nairobi Orchestra concert" class="aspect-[16/10] object-cover">
+          <div class="p-5">
+            <h3 class="text-[17.5px] leading-snug font-semibold">Nairobi Orchestra: sold-out weekend</h3>
+            <p class="text-sm text-ink/60 dark:text-paper/55 mt-2.5">Two nights, one enigmatic program spanning
+              Tchaikovsky and Kenyan rhythm.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="py-16 md:py-20 border-b border-ink/10 dark:border-paper/10">
+    <div class="max-w-[1180px] mx-auto px-6 md:px-8">
+      <div class="flex justify-between items-end flex-wrap gap-6 mb-10">
+        <h2 class="text-3xl font-semibold">Reviews</h2>
+        <a href="https://www.jazzsymphonic.com/reviews"
+          class="text-sm font-semibold text-rust dark:text-brasslight border-b border-rust dark:border-brasslight pb-0.5">View
+          all</a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        <div class="border border-ink/10 dark:border-paper/10 rounded-lg overflow-hidden flex flex-col">
+          <div class="aspect-square overflow-hidden"><img
+              src="https://www.jazzsymphonic.com/wp-content/uploads/2021/04/Journey-of-the-Soul-768x768.jpg"
+              alt="Jack Muguna Journey of the Soul album cover" class="w-full h-full object-cover"></div>
+          <div class="p-4.5 flex flex-col flex-1">
+            <h4 class="text-[15.5px] leading-snug font-semibold">Jack Muguna: Journey of the Soul</h4>
+            <div class="text-xs text-ink/55 dark:text-paper/55 mt-auto pt-2">Maureen Shelmith</div>
+          </div>
+        </div>
+
+        <div class="border border-ink/10 dark:border-paper/10 rounded-lg overflow-hidden flex flex-col">
+          <div class="aspect-square overflow-hidden"><img
+              src="https://www.jazzsymphonic.com/wp-content/uploads/2021/02/Finatos-tatto-768x960.jpg"
+              alt="Geco Café Nairobi" class="w-full h-full object-cover"></div>
+          <div class="p-4.5 flex flex-col flex-1">
+            <h4 class="text-[15.5px] leading-snug font-semibold">Geco Café: slithering with good vibes</h4>
+            <div class="text-xs text-ink/55 dark:text-paper/55 mt-auto pt-2">Maureen Shelmith</div>
+          </div>
+        </div>
+
+        <div class="border border-ink/10 dark:border-paper/10 rounded-lg overflow-hidden flex flex-col">
+          <div class="aspect-square overflow-hidden"><img
+              src="https://www.jazzsymphonic.com/wp-content/uploads/2020/02/Afrosynthesis-Cover-Art-768x768.jpg"
+              alt="Shamsi Music Afrosynthesis cover" class="w-full h-full object-cover"></div>
+          <div class="p-4.5 flex flex-col flex-1">
+            <h4 class="text-[15.5px] leading-snug font-semibold">Shamsi Music: Afrosynthesis</h4>
+            <div class="text-xs text-ink/55 dark:text-paper/55 mt-auto pt-2">Maureen Shelmith</div>
+          </div>
+        </div>
+
+        <div class="border border-ink/10 dark:border-paper/10 rounded-lg overflow-hidden flex flex-col">
+          <div class="aspect-square overflow-hidden"><img
+              src="https://www.jazzsymphonic.com/wp-content/uploads/2019/10/Feature-Image-768x512.jpg"
+              alt="Kabisa Jazz Collective album launch" class="w-full h-full object-cover"></div>
+          <div class="p-4.5 flex flex-col flex-1">
+            <h4 class="text-[15.5px] leading-snug font-semibold">Pictorial: Kabisa Jazz Collective launch</h4>
+            <div class="text-xs text-ink/55 dark:text-paper/55 mt-auto pt-2">Maureen Shelmith</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners" class="py-16 md:py-20">
+    <div class="max-w-[1180px] mx-auto px-6 md:px-8">
+      <h2 class="text-3xl font-semibold mb-9">Partners</h2>
+      <div class="partner-logos flex items-center gap-9 overflow-x-auto flex-nowrap pb-2 no-scrollbar">
+        <img src="https://www.jazzsymphonic.com/wp-content/uploads/2025/11/Safaricom-Jazz-150x150.jpg"
+          alt="Safaricom Jazz" class="h-24 w-24 md:h-36 md:w-36 flex-shrink-0 object-cover rounded-full">
+        <img src="https://www.jazzsymphonic.com/wp-content/uploads/2025/11/Nairobi-Music-Society-150x150.jpg"
+          alt="Nairobi Music Society" class="h-24 w-24 md:h-36 md:w-36 flex-shrink-0 object-cover rounded-full">
+        <img src="https://www.jazzsymphonic.com/wp-content/uploads/2018/09/NHP-goofy-image-150x150.jpg"
+          alt="Nairobi Horns Project" class="h-24 w-24 md:h-36 md:w-36 flex-shrink-0 object-cover rounded-full">
+        <img src="https://www.jazzsymphonic.com/wp-content/uploads/2025/11/Nairobi-youth-orchestra-150x150.jpg"
+          alt="Nairobi Youth Orchestra" class="h-24 w-24 md:h-36 md:w-36 flex-shrink-0 object-cover rounded-full">
+        <img src="https://www.jazzsymphonic.com/wp-content/uploads/2025/11/Geco-Cafe-150x150.jpg" alt="Geco Café"
+          class="h-24 w-24 md:h-36 md:w-36 flex-shrink-0 object-cover rounded-full">
+        <img src="https://www.jazzsymphonic.com/wp-content/uploads/2025/11/Real-Vinyl-Guru-150x150.jpg"
+          alt="Real Vinyl Guru" class="h-24 w-24 md:h-36 md:w-36 flex-shrink-0 object-cover rounded-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-ink/10 dark:border-paper/10 py-16">
+    <div class="max-w-[1180px] mx-auto px-6 md:px-8">
+      <div class="grid md:grid-cols-4 gap-10 pb-12 border-b border-ink/10 dark:border-paper/10">
+        <div>
+          <a href="#top" class="flex items-center gap-3">
+            <span class="w-10 h-10 inline-block transform scale-[2] origin-bottom-left"><svg viewBox="0 0 798.73 799.51"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+                <path d="M184.23,273.173v.24c-1.45.82-2.86,1.679-4.24,2.6C181.36,275,182.78,274.052,184.23,273.173Z" />
+                <path
+                  d="M58.61,513.663q0,1.918.12,3.81v-7.711Q58.61,511.7,58.61,513.663Zm125.62-7.921v15.83a62.9,62.9,0,0,0,0-15.83Z" />
+                <path d="M119.21,510.983a16.3,16.3,0,0,0,.52,2.24v-.971A11.652,11.652,0,0,1,119.21,510.983Z" />
+                <path
+                  d="M215.53,265.283a64.789,64.789,0,0,0-11.3.989,64.086,64.086,0,0,0-19.94,7.11l-.06.031c-1.45.82-2.86,1.679-4.24,2.6l-.27.18a64.358,64.358,0,0,0-20.85,23.091H142.73v8h8.5v23h-8.5v7h8.5v24h-8.5v7h8.5v142.76c-.03.089-.07.18-.1.269a17,17,0,0,1-31.4.94v.971a16.3,16.3,0,0,1-.52-2.24,11.652,11.652,0,0,0,.52,1.269V488.283h8v-7h-8v-23h8v-7h-8v-24h-61v90.19a63.054,63.054,0,0,0,61,59.219c.65.02,1.29.031,1.94.031a62.762,62.762,0,0,0,29.46-7.3.43.43,0,0,1,.1-.051,63.1,63.1,0,0,0,32.04-42.2c.41-1.841.73-3.7.96-5.6V385.582l.06.03v-86.9a32.245,32.245,0,0,1,28.4-22.429h20.04v-11Zm-144.01,230a2.973,2.973,0,0,1-2.95,3,1.84,1.84,0,0,1-.41-.041,2.955,2.955,0,0,1-2.54-2.959v-60a2.972,2.972,0,0,1,2.95-3,2.9,2.9,0,0,1,2.08.88,2.981,2.981,0,0,1,.87,2.12Z" />
+                <path d="M184.23,273.173v.24c-1.45.82-2.86,1.679-4.24,2.6C181.36,275,182.78,274.052,184.23,273.173Z" />
+                <rect x="237.73" y="259.283" width="14" height="23" />
+                <path
+                  d="M187.73,312.283h2.843a13.157,13.157,0,0,1,13.157,13.157v56.843a16,16,0,0,1-16,16h0a0,0,0,0,1,0,0v-86A0,0,0,0,1,187.73,312.283Z" />
+                <path
+                  d="M187.73,427.283h2.843a13.157,13.157,0,0,1,13.157,13.157v56.843a16,16,0,0,1-16,16h0a0,0,0,0,1,0,0v-86A0,0,0,0,1,187.73,427.283Z" />
+                <ellipse cx="138.73" cy="456.783" rx="6" ry="9" />
+                <ellipse cx="130.73" cy="364.283" rx="6" ry="9" />
+                <ellipse cx="130.73" cy="334.283" rx="6" ry="9" />
+                <ellipse cx="130.73" cy="304.283" rx="6" ry="9" />
+                <ellipse cx="138.73" cy="487.283" rx="6" ry="9" />
+                <path d="M42.16,395.283a23.825,23.825,0,0,0-.43,4.5v-4.5Z" />
+                <path d="M42.94,395.283h-.78c.01-.081.03-.151.04-.231C42.45,395.132,42.69,395.212,42.94,395.283Z" />
+                <path
+                  d="M135.73,395.522v9.04a23.5,23.5,0,0,1-22.5,16.721H55.38a23.758,23.758,0,0,1-13.22-26h.78a158.864,158.864,0,0,0,46.16,7h1.07A158.689,158.689,0,0,0,135.73,395.522Z" />
+                <path
+                  d="M333.75,293.887q-8.5.21-17.32.211t-16.91-.211q-8.085-.21-12.91-.42v4.2a33.127,33.127,0,0,1,10.29,1.569,7.6,7.6,0,0,1,4.72,5.04q1.155,3.677,1.16,11.451V431.017q0,17.43-3.15,27.51t-9.35,14.28a28.294,28.294,0,0,1-14.8,4.62v4.2q22.05,0,35.28-9.769T327.98,447.4a93.762,93.762,0,0,0,2.62-16.59q.735-9.45.84-19.53t.11-18.69V315.728q0-7.772,1.15-11.451a7.592,7.592,0,0,1,4.62-5.04q3.465-1.365,10.4-1.569v-4.2Q342.245,293.679,333.75,293.887Z" />
+                <path
+                  d="M483.27,434.9q-3.675-2.835-6.82-10.39l-51.03-131.67q-2.52.212-5.46.21c-1.97,0-3.78-.069-5.46-.21L366.41,417.158q-4.215,10.918-8.72,15.329a19.568,19.568,0,0,1-9.13,5.46v4.2a68.542,68.542,0,0,1,7.24-.53q4.095-.1,8.72-.1,6.3,0,12.6.1c4.2.07,8.53.25,13.02.53v-4.2q-8.82-.21-13.65-3.15-4.845-2.94-5.04-10.4t5.25-21.31l6.64-17.22,1.62-4.2L407.5,323.2l21.66,58.471,1.56,4.2,12.76,34.44q4.2,10.71,1.26,13.96c-1.97,2.17-6.51,3.4-13.65,3.68v4.2q5.04-.42,13.02-.53c5.32-.07,11.05-.1,17.22-.1q7.98,0,15.64.1t13.13.53v-4.2A12.95,12.95,0,0,1,483.27,434.9ZM383.21,381.668l-2.1,4.2h62.58v-4.2Z" />
+                <path
+                  d="M605.18,293.467q-13.02.42-28.14.52t-28.77.111q-10.71,0-24.26-.111t-24.67-.52q.825,9.03,1.15,17.43t.32,12.81q0,4.83-.11,9.03a69.6,69.6,0,0,1-.52,7.35h4.83q1.89-15.96,6.93-24.989a29.766,29.766,0,0,1,13.23-12.921,44.642,44.642,0,0,1,19.32-3.88h28.77l-76.02,139.65v4.2q12.795-.42,27.3-.53t27.51-.1q11.55,0,26.14.1t26.15.53q-.84-9.03-1.16-17.43t-.31-12.809q0-11.131.63-18.06h-4.83q-1.065,12.178-4.62,20.579a37.272,37.272,0,0,1-9.03,13.33,34.826,34.826,0,0,1-12.29,7.25,46.561,46.561,0,0,1-15.01,2.31H529.58l75.6-139.649Z" />
+                <path
+                  d="M730.97,293.467q-13.02.42-28.14.52t-28.77.111q-10.71,0-24.26-.111t-24.67-.52q.825,9.03,1.15,17.43t.32,12.81q0,4.83-.11,9.03a69.6,69.6,0,0,1-.52,7.35h4.83q1.89-15.96,6.93-24.989a29.766,29.766,0,0,1,13.23-12.921,44.642,44.642,0,0,1,19.32-3.88h28.77l-76.02,139.65v4.2q12.795-.42,27.3-.53,14.49-.1,27.51-.1,11.55,0,26.14.1t26.15.53q-.84-9.03-1.16-17.43t-.31-12.809q0-11.131.63-18.06h-4.83q-1.065,12.178-4.62,20.579a37.272,37.272,0,0,1-9.03,13.33,34.826,34.826,0,0,1-12.29,7.25,46.561,46.561,0,0,1-15.01,2.31H655.37l75.6-139.649Z" />
+                <path
+                  d="M311.85,521.867a19.481,19.481,0,0,0-4.72-5.209q-3-2.356-6.75-4.761c-2.45-1.549-4.64-2.97-6.57-4.239a17.8,17.8,0,0,1-4.53-4.131,8.946,8.946,0,0,1-1.65-5.51,7.765,7.765,0,0,1,2.51-6.039,9.066,9.066,0,0,1,6.34-2.281,10.37,10.37,0,0,1,6.78,2.17,13.641,13.641,0,0,1,4.05,5.63,22.543,22.543,0,0,1,1.62,7.12h1.72q0-4.875.04-7.87c.02-2,.07-3.61.15-4.839s.14-2.291.19-3.191H309.3q-.45,3.3-1.65,3.3a2.516,2.516,0,0,1-1.09-.26c-.37-.17-.86-.44-1.46-.79a23.227,23.227,0,0,0-3.67-1.95,16.068,16.068,0,0,0-6.08-.9,18.775,18.775,0,0,0-7.31,1.43,12.826,12.826,0,0,0-5.55,4.35,12.363,12.363,0,0,0-2.14,7.5,13.312,13.312,0,0,0,1.84,7.12,18.343,18.343,0,0,0,4.91,5.25q3.075,2.25,6.6,4.5a48.886,48.886,0,0,1,8.36,6.19,10.05,10.05,0,0,1,3.19,7.61q0,4.875-2.92,7.161a10.534,10.534,0,0,1-6.68,2.289,11.562,11.562,0,0,1-7.69-2.43,14.386,14.386,0,0,1-4.27-6.489,33.171,33.171,0,0,1-1.69-8.7h-1.72c0,3.65-.02,6.67-.04,9.07s-.05,4.34-.08,5.81-.08,2.77-.18,3.87h1.72q.45-3.3,1.65-3.3a5.419,5.419,0,0,1,2.55,1.049,28.091,28.091,0,0,0,4.2,1.87,20.06,20.06,0,0,0,6.68.9,21.907,21.907,0,0,0,8.4-1.57,13.877,13.877,0,0,0,6.11-4.761,13.554,13.554,0,0,0,2.29-8.07A13.087,13.087,0,0,0,311.85,521.867Z" />
+                <path
+                  d="M360.83,489.168c-.9.049-1.98.079-3.23.079-1.35,0-2.77-.03-4.27-.079s-3.03-.1-4.58-.151v1.5a9.912,9.912,0,0,1,4.84,1.091,3.716,3.716,0,0,1,1.65,3.529c-.03,1.67-.81,4.031-2.36,7.08l-8.31,16.56-12.09-23.23q-1.05-2.025-.57-3.12a2.734,2.734,0,0,1,1.95-1.46,13.546,13.546,0,0,1,3.34-.369v-1.581q-2.7.15-5.85.19c-2.1.03-4.05.04-5.85.04-1.4,0-2.7-.03-3.9-.079s-2.35-.1-3.45-.151V490.6a3.216,3.216,0,0,1,1.84.75,11.7,11.7,0,0,1,2.51,3.449l14.93,27.561,2.62,4.839h2.03l3.97-7.88,10.8-21.45a25.833,25.833,0,0,1,3.41-5.28,6.411,6.411,0,0,1,3.04-2.07v-1.5C362.55,489.067,361.73,489.117,360.83,489.168Zm-12.6,50.849a2.709,2.709,0,0,1-1.73-1.8,13.648,13.648,0,0,1-.45-4.049v-16.2l-3.75,5.48-4.87-4.65v15.371a14.573,14.573,0,0,1-.42,4.049,2.581,2.581,0,0,1-1.68,1.8,14.912,14.912,0,0,1-3.83.6v1.5c1.1-.1,2.58-.16,4.43-.19s3.8-.03,5.85-.03c1.9,0,3.77.011,5.62.03s3.38.09,4.58.19v-1.5A14.574,14.574,0,0,1,348.23,540.017Z" />
+                <path
+                  d="M423.49,492.887a2.674,2.674,0,0,1,1.69-1.8,12.088,12.088,0,0,1,3.82-.57v-1.5q-1.875.075-4.65.151c-1.85.049-3.73.079-5.62.079H414.6l-15.39,40.99-16.03-41.22c-1.05.05-2.32.1-3.79.151s-2.94.079-4.39.079c-1.25,0-2.5-.03-3.75-.079s-2.28-.1-3.07-.151v1.5a11.943,11.943,0,0,1,3.75.57,2.806,2.806,0,0,1,1.72,1.8,13.517,13.517,0,0,1,.45,4.08v35.55a19.584,19.584,0,0,1-.45,4.73,3.688,3.688,0,0,1-1.72,2.43,9.637,9.637,0,0,1-3.75.94v1.5c.79-.1,1.82-.16,3.07-.19s2.5-.03,3.75-.03c1.3,0,2.69.011,4.16.03s2.69.09,3.64.19v-1.5a12.788,12.788,0,0,1-4.57-.97,3.646,3.646,0,0,1-1.95-2.51,20.956,20.956,0,0,1-.45-4.92v-38.4l19.35,48.6h1.2l18.07-48.111v39.861a13.648,13.648,0,0,1-.45,4.049,2.709,2.709,0,0,1-1.76,1.8,15.513,15.513,0,0,1-3.86.6v1.5c1.09-.1,2.57-.16,4.42-.19s3.83-.03,5.93-.03c1.89,0,3.77.011,5.62.03s3.4.09,4.65.19v-1.5a14.743,14.743,0,0,1-3.82-.6,2.594,2.594,0,0,1-1.69-1.8,14.647,14.647,0,0,1-.41-4.049v-37.2A14.512,14.512,0,0,1,423.49,492.887Z" />
+                <path
+                  d="M472.05,493.217q-4.725-4.125-14.25-4.119c-.9,0-2.44.019-4.61.07s-4.47.079-6.87.079c-1.8,0-3.61-.03-5.43-.079s-3.32-.1-4.47-.151v1.5a12.285,12.285,0,0,1,3.79.57,2.688,2.688,0,0,1,1.73,1.8,14.9,14.9,0,0,1,.41,4.08v37.2a15.048,15.048,0,0,1-.41,4.049,2.614,2.614,0,0,1-1.69,1.8,14.912,14.912,0,0,1-3.83.6v1.5c1.25-.1,2.79-.16,4.62-.19s3.73-.03,5.73-.03q3.45,0,6.68.03c2.15.03,3.9.09,5.25.19v-1.57a21.728,21.728,0,0,1-4.88-.53,3.194,3.194,0,0,1-2.25-1.84,10.978,10.978,0,0,1-.6-4.16V520.668h5.18a27.769,27.769,0,0,0,10.12-1.57,16.852,16.852,0,0,0,6.3-4.091,14.475,14.475,0,0,0,3.27-5.48,18.853,18.853,0,0,0,.93-5.66A13.481,13.481,0,0,0,472.05,493.217Zm-5.36,18.6a9.974,9.974,0,0,1-3.6,5.33q-2.67,2.025-7.69,2.021h-4.43v-22.2q0-3.9,1.02-5.17c.67-.85,2.08-1.28,4.23-1.28q6.3,0,8.85,3.53t2.55,10.65A26.139,26.139,0,0,1,466.69,511.817Z" />
+                <path
+                  d="M497.7,496.967a13.517,13.517,0,0,1,.45-4.08,2.783,2.783,0,0,1,1.72-1.8,11.892,11.892,0,0,1,3.75-.57v-1.5q-1.8.075-4.53.151c-1.83.049-3.69.079-5.59.079-2.1,0-4.06-.03-5.89-.079s-3.31-.1-4.46-.151v1.5a12.338,12.338,0,0,1,3.79.57,2.673,2.673,0,0,1,1.72,1.8,14.512,14.512,0,0,1,.41,4.08v37.2a14.647,14.647,0,0,1-.41,4.049,2.594,2.594,0,0,1-1.69,1.8,14.821,14.821,0,0,1-3.82.6v1.5c1.15-.1,2.63-.16,4.46-.19s3.79-.03,5.89-.03c1.9,0,3.76.011,5.59.03s3.33.09,4.53.19v-1.5a14.574,14.574,0,0,1-3.75-.6,2.7,2.7,0,0,1-1.72-1.8,13.648,13.648,0,0,1-.45-4.049Zm-3.38,17.7v1.5h29.63v-1.5Zm35.33-21.781a2.783,2.783,0,0,1,1.72-1.8,11.892,11.892,0,0,1,3.75-.57v-1.5q-1.65.075-4.35.151c-1.8.049-3.75.079-5.85.079-1.85,0-3.71-.03-5.58-.079s-3.44-.1-4.69-.151v1.5a12.338,12.338,0,0,1,3.79.57,2.673,2.673,0,0,1,1.72,1.8,14.512,14.512,0,0,1,.41,4.08v37.2a14.647,14.647,0,0,1-.41,4.049,2.594,2.594,0,0,1-1.69,1.8,14.821,14.821,0,0,1-3.82.6v1.5c1.25-.1,2.81-.16,4.69-.19s3.73-.03,5.58-.03q3.15,0,5.85.03c1.8.03,3.25.09,4.35.19v-1.5a14.574,14.574,0,0,1-3.75-.6,2.7,2.7,0,0,1-1.72-1.8,13.648,13.648,0,0,1-.45-4.049v-37.2A13.517,13.517,0,0,1,529.65,492.887Z" />
+                <path
+                  d="M589.12,500.457a21.867,21.867,0,0,0-8.66-9.26,25.414,25.414,0,0,0-12.94-3.23,23.39,23.39,0,0,0-12.82,3.53,24.424,24.424,0,0,0-8.74,9.82,35.869,35.869,0,0,0-.11,29.33,21.888,21.888,0,0,0,8.62,9.3,25.369,25.369,0,0,0,12.98,3.221,23.624,23.624,0,0,0,12.82-3.521,23.967,23.967,0,0,0,8.78-9.83,32.476,32.476,0,0,0,3.15-14.7A32.017,32.017,0,0,0,589.12,500.457Zm-7.98,28.651a22.553,22.553,0,0,1-5.33,9.339,11.082,11.082,0,0,1-8.06,3.37,11.841,11.841,0,0,1-8.03-3.18,21.477,21.477,0,0,1-5.7-9.08,41.194,41.194,0,0,1-2.1-13.84A45.51,45.51,0,0,1,553.8,502a22.031,22.031,0,0,1,5.32-9.3,11.214,11.214,0,0,1,8.1-3.38,11.7,11.7,0,0,1,7.99,3.19,21.908,21.908,0,0,1,5.7,9.04,40.311,40.311,0,0,1,2.14,13.871A44.97,44.97,0,0,1,581.14,529.108Z" />
+                <path
+                  d="M644.62,489.168c-1.25.049-2.5.079-3.75.079-1.3,0-2.7-.03-4.2-.079s-2.7-.1-3.6-.151v1.5a11.149,11.149,0,0,1,4.5.94,3.875,3.875,0,0,1,1.99,2.51,19,19,0,0,1,.49,4.951v29.25l-27.38-39.151c-.8.05-1.72.1-2.77.151s-2.13.079-3.23.079c-1.25,0-2.5-.03-3.75-.079s-2.27-.1-3.07-.151v1.5a11.892,11.892,0,0,1,3.75.57,2.783,2.783,0,0,1,1.72,1.8,13.517,13.517,0,0,1,.45,4.08v35.55a19.584,19.584,0,0,1-.45,4.73,3.656,3.656,0,0,1-1.72,2.43,9.587,9.587,0,0,1-3.75.94v1.5c.8-.1,1.82-.16,3.07-.19s2.5-.03,3.75-.03q1.95,0,4.17.03c1.47.03,2.68.09,3.63.19v-1.5a12.788,12.788,0,0,1-4.57-.97,3.673,3.673,0,0,1-1.95-2.51,20.956,20.956,0,0,1-.45-4.92v-36l31.8,46.2h2.47v-43.8a20.742,20.742,0,0,1,.42-4.759,3.653,3.653,0,0,1,1.68-2.44,8.776,8.776,0,0,1,3.83-.9v-1.5C646.9,489.067,645.87,489.117,644.62,489.168Z" />
+                <path
+                  d="M669.67,492.887a2.8,2.8,0,0,1,1.73-1.8,11.892,11.892,0,0,1,3.75-.57v-1.5c-1.2.05-2.71.1-4.54.151s-3.69.079-5.59.079c-2.1,0-4.06-.03-5.88-.079s-3.32-.1-4.47-.151v1.5a12.285,12.285,0,0,1,3.79.57,2.688,2.688,0,0,1,1.73,1.8,14.9,14.9,0,0,1,.41,4.08v37.2a15.048,15.048,0,0,1-.41,4.049,2.614,2.614,0,0,1-1.69,1.8,14.912,14.912,0,0,1-3.83.6v1.5c1.15-.1,2.64-.16,4.47-.19s3.78-.03,5.88-.03c1.9,0,3.77.011,5.59.03s3.34.09,4.54.19v-1.5a14.574,14.574,0,0,1-3.75-.6,2.709,2.709,0,0,1-1.73-1.8,13.648,13.648,0,0,1-.45-4.049v-37.2A13.517,13.517,0,0,1,669.67,492.887Z" />
+                <path
+                  d="M726.15,523.817h-1.73a48.84,48.84,0,0,1-1.31,7.69,12.058,12.058,0,0,1-2.89,5.06,11.575,11.575,0,0,1-5.25,3.791,18.231,18.231,0,0,1-6.37,1.24,12.836,12.836,0,0,1-6.79-1.841,15.635,15.635,0,0,1-5.17-5.25,26.846,26.846,0,0,1-3.27-8.17,46.335,46.335,0,0,1-1.12-10.62,49.169,49.169,0,0,1,1.05-10.5,29.7,29.7,0,0,1,3.04-8.32,15.236,15.236,0,0,1,4.91-5.44,12.014,12.014,0,0,1,6.75-1.91,18.563,18.563,0,0,1,6.67,1.2,12.44,12.44,0,0,1,5.33,3.9,13.387,13.387,0,0,1,2.14,2.92,15.1,15.1,0,0,1,1.27,3.6c.33,1.4.66,3.2,1.01,5.4h1.73q0-6.675.07-10.68t.23-6.87h-1.73c-.2,2.151-.56,3.521-1.08,4.091s-1.29.49-2.29-.26a28.278,28.278,0,0,0-5.66-3.421,19.7,19.7,0,0,0-8.14-1.46,23.424,23.424,0,0,0-12.83,3.53,24.329,24.329,0,0,0-8.73,9.82,35.922,35.922,0,0,0-.12,29.33,21.91,21.91,0,0,0,8.63,9.3,25.332,25.332,0,0,0,12.97,3.221,18.92,18.92,0,0,0,7.99-1.461,39.775,39.775,0,0,0,5.89-3.41c1.1-.7,1.89-.78,2.36-.23s.81,1.9,1.01,4.05h1.73c-.1-1.949-.18-4.329-.23-7.16S726.15,528.418,726.15,523.817Z" />
+              </svg></span>
+          </a>
+          <p class="text-sm text-ink/60 dark:text-paper/55 mt-4 max-w-[34ch]">A creative space for jazz and classical
+            music - artists, live performances, reviews, and reflections on great music, out of Nairobi.</p>
+          <div class="flex gap-3 mt-5">
+            <a href="https://www.instagram.com/jazzsymphonic/" aria-label="Instagram"
+              class="w-9 h-9 rounded-full border border-ink/15 dark:border-paper/15 flex items-center justify-center text-xs hover:border-rust dark:hover:border-brasslight hover:text-rust dark:hover:text-brasslight transition">IG</a>
+            <a href="https://www.facebook.com/jazzsymphonic/" aria-label="Facebook"
+              class="w-9 h-9 rounded-full border border-ink/15 dark:border-paper/15 flex items-center justify-center text-xs hover:border-rust dark:hover:border-brasslight hover:text-rust dark:hover:text-brasslight transition">FB</a>
+            <a href="#" aria-label="YouTube"
+              class="w-9 h-9 rounded-full border border-ink/15 dark:border-paper/15 flex items-center justify-center text-xs hover:border-rust dark:hover:border-brasslight hover:text-rust dark:hover:text-brasslight transition">YT</a>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-semibold text-rust dark:text-brasslight mb-4">Explore</h5>
+          <ul class="flex flex-col gap-2.5 text-sm text-ink/65 dark:text-paper/60">
+            <li><a href="#top" class="hover:text-ink dark:hover:text-paper transition">Home</a></li>
+            <li><a href="https://www.jazzsymphonic.com/about-jazz-symphonic/"
+                class="hover:text-ink dark:hover:text-paper transition">About</a></li>
+            <li><a href="#stories" class="hover:text-ink dark:hover:text-paper transition">Blog &amp; articles</a></li>
+            <li><a href="https://www.jazzsymphonic.com/contact/"
+                class="hover:text-ink dark:hover:text-paper transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-semibold text-rust dark:text-brasslight mb-4">Sections</h5>
+          <ul class="flex flex-col gap-2.5 text-sm text-ink/65 dark:text-paper/60">
+            <li><a href="#events" class="hover:text-ink dark:hover:text-paper transition">Events</a></li>
+            <li><a href="#reviews" class="hover:text-ink dark:hover:text-paper transition">Reviews</a></li>
+            <li><a href="https://www.jazzsymphonic.com/feature/"
+                class="hover:text-ink dark:hover:text-paper transition">Featured</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-semibold text-rust dark:text-brasslight mb-4">Stay in tune</h5>
+          <p class="text-sm text-ink/60 dark:text-paper/55">Get new stories and event listings in your inbox.</p>
+          <input type="email" placeholder="you@email.com" aria-label="Email address"
+            class="w-full mt-3 px-3.5 py-2.5 bg-white dark:bg-inksoft border border-ink/15 dark:border-paper/15 text-sm text-ink dark:text-paper placeholder:text-ink/40 dark:placeholder:text-paper/40 rounded-lg">
+          <button type="button"
+            class="w-full mt-2.5 py-2.5 bg-rust text-paper text-sm font-semibold hover:bg-[#8f3821] transition rounded-lg">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center flex-wrap gap-3 pt-7 text-sm text-ink/55 dark:text-paper/50">
+        <span>© Jazz Symphonic 2026</span>
+        <a href="https://www.jazzsymphonic.com/privacy-policy/"
+          class="hover:text-ink dark:hover:text-paper transition">Privacy &amp; policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
