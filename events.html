@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" x-data="{
-    dark: false,
+    dark: localStorage.theme === 'dark',
     menuOpen: false
-  }" x-bind:class="dark ? 'dark' : ''">
+  }" x-effect="localStorage.theme = dark ? 'dark' : 'light'" x-bind:class="dark ? 'dark' : ''">
 
 <head>
   <meta charset="UTF-8">
