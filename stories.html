@@ -216,11 +216,10 @@
       <nav class="hidden md:flex items-center gap-9 text-sm font-medium">
         <a href="index.html"
           class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">Home</a>
-        <a href="stories.html"
-          class="opacity-100 text-ink dark:text-paper underline underline-offset-4">Stories</a>
-        <a href="index.html#events"
+        <a href="stories.html" class="opacity-100 text-ink dark:text-paper underline underline-offset-4">Stories</a>
+        <a href="events.html"
           class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">Events</a>
-        <a href="index.html#reviews"
+        <a href="reviews.html"
           class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">Reviews</a>
         <a href="about.html"
           class="opacity-80 hover:opacity-100 hover:text-rust dark:hover:text-paper hover:underline underline-offset-4 transition">About</a>
@@ -245,8 +244,8 @@
         </button>
 
         <a href="index.html#events"
-          class="hidden md:inline-flex items-center gap-2 text-sm font-semibold px-6 h-[34px] rounded-lg bg-rust text-paper hover:bg-[#8f3821] transition">See
-          What's On</a>
+          class="hidden md:inline-flex items-center gap-2 text-sm font-semibold px-6 h-[34px] rounded-lg bg-rust text-paper hover:bg-[#8f3821] transition">Contact
+          Us</a>
 
         <button @click="menuOpen = !menuOpen" class="md:hidden w-10 h-10 flex items-center justify-center"
           aria-label="Open menu">
@@ -271,14 +270,17 @@
   </header>
 
   <!-- STORIES INTRO -->
-  <section class="border-b border-ink/10 dark:border-paper/10">
+  <section>
     <div class="max-w-[1180px] mx-auto px-6 md:px-8 pt-14 md:pt-20 pb-16 md:pb-20">
       <span class="rise text-sm font-semibold text-rust dark:text-brasslight uppercase tracking-wide">Stories</span>
-      <h1 class="rise [animation-delay:.04s] text-[36px] leading-[1.1] md:text-[52px] md:leading-[1.05] font-semibold mt-3 max-w-[20ch]">
-        Concert reviews, artist profiles, and <em class="italic font-medium text-rust dark:text-brasslight">everything in between</em>
+      <h1
+        class="rise [animation-delay:.04s] text-[36px] leading-[1.1] md:text-[52px] md:leading-[1.05] font-semibold mt-3 max-w-[20ch]">
+        Concert reviews, artist profiles, and <em class="italic font-medium text-rust dark:text-brasslight">everything
+          in between</em>
       </h1>
       <p class="rise [animation-delay:.08s] mt-6 max-w-[60ch] text-lg text-ink/70 dark:text-paper/65">
-        Every write-up here is chosen with care &mdash; jazz, classical, and the moments where Nairobi's live-music scene surprises us.
+        Every write-up here is chosen with care &mdash; jazz, classical, and the moments where Nairobi's live-music
+        scene surprises us.
       </p>
     </div>
   </section>
@@ -286,186 +288,258 @@
   <!-- STORIES GRID -->
   <section class="py-16 md:py-20">
     <div class="max-w-[1180px] mx-auto px-6 md:px-8">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/10 dark:bg-paper/10 border border-ink/10 dark:border-paper/10 rounded-xl overflow-hidden">
-      <a href="https://www.jazzsymphonic.com/mariah-gichu-a-troubadour-journeying-with-her-music-through-time/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2024/11/REFLECTIONS-45-768x465.jpg" alt="Mariah Gichu: a troubadour journeying through time" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Nov 28, 2024</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Mariah Gichu: a troubadour journeying through time</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">As you enter the dark auditorium, you navigate using your phone&#x27;s light. Written by Birte Mensing.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+      <div
+        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/10 dark:bg-paper/10 border border-ink/10 dark:border-paper/10 rounded-xl overflow-hidden">
+        <a href="https://www.jazzsymphonic.com/mariah-gichu-a-troubadour-journeying-with-her-music-through-time/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2024/11/REFLECTIONS-45-768x465.jpg"
+              alt="Mariah Gichu: a troubadour journeying through time"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Nov 28, 2024</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Mariah Gichu: a troubadour journeying through time</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">As you enter the dark auditorium, you
+              navigate using your phone&#x27;s light. Written by Birte Mensing.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/tchaikovskys-thunder-and-kenyas-rhythms-nairobi-orchestras-concert-delight/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2024/11/NBO-Orchestra-3-768x512.jpg" alt="Tchaikovsky&#x27;s Thunder and Kenya&#x27;s Rhythms: Nairobi Orchestra&#x27;s Concert Delight" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Nov 20, 2024</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Tchaikovsky&#x27;s Thunder and Kenya&#x27;s Rhythms: Nairobi Orchestra&#x27;s Concert Delight</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">The latest concert by the Nairobi Orchestra offered an entertaining array of music across a two-day showcase.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/tchaikovskys-thunder-and-kenyas-rhythms-nairobi-orchestras-concert-delight/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2024/11/NBO-Orchestra-3-768x512.jpg"
+              alt="Tchaikovsky&#x27;s Thunder and Kenya&#x27;s Rhythms: Nairobi Orchestra&#x27;s Concert Delight"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Nov 20, 2024</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Tchaikovsky&#x27;s Thunder and Kenya&#x27;s Rhythms:
+              Nairobi Orchestra&#x27;s Concert Delight</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">The latest concert by the Nairobi Orchestra
+              offered an entertaining array of music across a two-day showcase.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/nairobi-music-society-and-nairobi-orchestra-love-liberty-concert-in-nairobi/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/05/Peter-Nyabuto-Quaint-Photography.jpg" alt="Nairobi Music Society and Nairobi Orchestra: Love, Liberty concert in Nairobi" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">May 4, 2022</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Nairobi Music Society and Nairobi Orchestra: Love, Liberty concert in Nairobi</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">The Nairobi Music Society and Nairobi Orchestra showcased an exhilarating concert on the 30th of April.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/nairobi-music-society-and-nairobi-orchestra-love-liberty-concert-in-nairobi/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/05/Peter-Nyabuto-Quaint-Photography.jpg"
+              alt="Nairobi Music Society and Nairobi Orchestra: Love, Liberty concert in Nairobi"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">May 4, 2022</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Nairobi Music Society and Nairobi Orchestra: Love,
+              Liberty concert in Nairobi</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">The Nairobi Music Society and Nairobi
+              Orchestra showcased an exhilarating concert on the 30th of April.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/ngewa-kasiva-mutua-rhythmical-tales-on-percussion/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/04/NGEWA-Artwork-Front-768x768.jpg" alt="Ngewa: Kasiva Mutua&#x27;s rhythmical tales on percussion" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Apr 26, 2022</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Ngewa: Kasiva Mutua&#x27;s rhythmical tales on percussion</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">With every tap of the beat on the drum, it is an entrancing rhythmical journey through percussion.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/ngewa-kasiva-mutua-rhythmical-tales-on-percussion/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/04/NGEWA-Artwork-Front-768x768.jpg"
+              alt="Ngewa: Kasiva Mutua&#x27;s rhythmical tales on percussion"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Apr 26, 2022</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Ngewa: Kasiva Mutua&#x27;s rhythmical tales on
+              percussion</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">With every tap of the beat on the drum, it
+              is an entrancing rhythmical journey through percussion.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/beneath-the-baobabs-live-a-kenyan-live-music-experience-in-kilifi/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/04/BTBL-TWT2-768x256.jpg" alt="Beneath the Baobabs Live: a Kenyan live music experience in Kilifi" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Apr 5, 2022</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Beneath the Baobabs Live: a Kenyan live music experience in Kilifi</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">The magical sandy beaches and majestic weather of the coast beckon. Set your calendars for a weekend of live music.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/beneath-the-baobabs-live-a-kenyan-live-music-experience-in-kilifi/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2022/04/BTBL-TWT2-768x256.jpg"
+              alt="Beneath the Baobabs Live: a Kenyan live music experience in Kilifi"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Apr 5, 2022</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Beneath the Baobabs Live: a Kenyan live music experience
+              in Kilifi</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">The magical sandy beaches and majestic
+              weather of the coast beckon. Set your calendars for a weekend of live music.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/tribute-to-zach-amunga-an-exceptional-stealth-jazz-pianist-in-kenya/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/12/Quaint-Photography-Zach.jpg" alt="Tribute to Zach Amunga: an exceptional stealth jazz pianist in Kenya" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Dec 18, 2021</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Tribute to Zach Amunga: an exceptional stealth jazz pianist in Kenya</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">As a musician or a creative person, it is very easy to feel defined by what we do.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/tribute-to-zach-amunga-an-exceptional-stealth-jazz-pianist-in-kenya/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/12/Quaint-Photography-Zach.jpg"
+              alt="Tribute to Zach Amunga: an exceptional stealth jazz pianist in Kenya"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Dec 18, 2021</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Tribute to Zach Amunga: an exceptional stealth jazz
+              pianist in Kenya</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">As a musician or a creative person, it is
+              very easy to feel defined by what we do.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/herbie-tsoaeli-spiritual-dialogues-at-this-point-in-time-voices-in-volume/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/12/Herbie-Tsa.jpg" alt="Herbie Tsoaeli: Spiritual Dialogues, At This Point in Time" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Dec 10, 2021</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Herbie Tsoaeli: Spiritual Dialogues, At This Point in Time</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Bra Herbie is a key figure within the South African scene: bassist, composer, and arranger.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/herbie-tsoaeli-spiritual-dialogues-at-this-point-in-time-voices-in-volume/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/12/Herbie-Tsa.jpg"
+              alt="Herbie Tsoaeli: Spiritual Dialogues, At This Point in Time"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Dec 10, 2021</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Herbie Tsoaeli: Spiritual Dialogues, At This Point in
+              Time</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Bra Herbie is a key figure within the South
+              African scene: bassist, composer, and arranger.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/down-memory-lane-an-evening-remembering-whitney-houston/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/12/An-Evening-Remembering-Luther-Vandross-Photo-by-Teddy-Mitchener-759x500-1.jpg" alt="Down memory lane: an evening remembering Whitney Houston" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Dec 2, 2021</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Down memory lane: an evening remembering Whitney Houston</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Issa tribute series. We got the Whitney Houston nostalgia, and exciting times await all of Nairobi.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/down-memory-lane-an-evening-remembering-whitney-houston/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="https://www.jazzsymphonic.com/wp-content/uploads/2021/12/An-Evening-Remembering-Luther-Vandross-Photo-by-Teddy-Mitchener-759x500-1.jpg"
+              alt="Down memory lane: an evening remembering Whitney Houston"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Dec 2, 2021</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Down memory lane: an evening remembering Whitney Houston
+            </h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Issa tribute series. We got the Whitney
+              Houston nostalgia, and exciting times await all of Nairobi.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/nairobi-orchestra-returns-at-kenya-national-theatre/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/07/Nairobi-Orchestra-KNT.jpg" alt="Nairobi Orchestra Returns! at Kenya National Theatre" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Jul 2, 2021</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Nairobi Orchestra Returns! at Kenya National Theatre</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Last Sunday, we were treated to a short but sweet concert dubbed Nairobi Orchestra Returns.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/nairobi-orchestra-returns-at-kenya-national-theatre/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/07/Nairobi-Orchestra-KNT.jpg"
+              alt="Nairobi Orchestra Returns! at Kenya National Theatre"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Jul 2, 2021</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Nairobi Orchestra Returns! at Kenya National Theatre
+            </h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Last Sunday, we were treated to a short but
+              sweet concert dubbed Nairobi Orchestra Returns.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/an-evening-celebrating-stevie-wonder-in-nairobi/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/06/Stevie-Wonderz-768x768.jpg" alt="An evening celebrating Stevie Wonder in Nairobi" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Jun 10, 2021</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">An evening celebrating Stevie Wonder in Nairobi</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">This June we are celebrating the musical genius that is Stevie Wonder, and Nairobi music fans will be treated.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/an-evening-celebrating-stevie-wonder-in-nairobi/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/06/Stevie-Wonderz-768x768.jpg"
+              alt="An evening celebrating Stevie Wonder in Nairobi"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Jun 10, 2021</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">An evening celebrating Stevie Wonder in Nairobi</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">This June we are celebrating the musical
+              genius that is Stevie Wonder, and Nairobi music fans will be treated.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/sage-chemutai-love-is-all-we-need/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/04/Sage-Chemutai-Featured-Image.jpg" alt="Sage Chemutai: love is all we need" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Apr 26, 2021</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Sage Chemutai: love is all we need</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">As I write this, it is a grueling time around the world, as the Novel Coronavirus has ushered in a new era.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/sage-chemutai-love-is-all-we-need/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/04/Sage-Chemutai-Featured-Image.jpg"
+              alt="Sage Chemutai: love is all we need"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Apr 26, 2021</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Sage Chemutai: love is all we need</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">As I write this, it is a grueling time
+              around the world, as the Novel Coronavirus has ushered in a new era.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/jack-muguna-journey-of-the-soul/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/04/Journey-of-the-Soul-768x768.jpg" alt="Jack Muguna: journey of the soul" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Apr 20, 2021</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Jack Muguna: journey of the soul</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">It all seems quite unfathomable that we are still living through a pandemic, in Kenya and beyond.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/jack-muguna-journey-of-the-soul/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/04/Journey-of-the-Soul-768x768.jpg"
+              alt="Jack Muguna: journey of the soul"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Apr 20, 2021</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Jack Muguna: journey of the soul</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">It all seems quite unfathomable that we are
+              still living through a pandemic, in Kenya and beyond.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/geco-cafe-slithering-with-good-vibes-in-nairobi/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/02/Finatos-tatto-768x960.jpg" alt="Geco Cafe: slithering with good vibes in Nairobi" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Feb 18, 2021</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Geco Cafe: slithering with good vibes in Nairobi</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Breakfast at Geco Cafe along Mbaazi Avenue feels like the right place to be, on-trend in every way.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/geco-cafe-slithering-with-good-vibes-in-nairobi/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2021/02/Finatos-tatto-768x960.jpg"
+              alt="Geco Cafe: slithering with good vibes in Nairobi"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Feb 18, 2021</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Geco Cafe: slithering with good vibes in Nairobi</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Breakfast at Geco Cafe along Mbaazi Avenue
+              feels like the right place to be, on-trend in every way.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/wynton-marsalis-interactive-session-with-kenyan-artists-mythology-of-jazz-improvisation-and-creativity/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2020/11/Thumbnail-for-Jazzsymphonic-768x493.jpg" alt="Wynton Marsalis: interactive session with Kenyan artists on jazz, improvisation and creativity" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Nov 26, 2020</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">Wynton Marsalis: interactive session with Kenyan artists on jazz, improvisation and creativity</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Wynton Marsalis, an American jazz legend, composer, bandleader, trumpeter and nine-time Grammy winner.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/wynton-marsalis-interactive-session-with-kenyan-artists-mythology-of-jazz-improvisation-and-creativity/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://www.jazzsymphonic.com/wp-content/uploads/2020/11/Thumbnail-for-Jazzsymphonic-768x493.jpg"
+              alt="Wynton Marsalis: interactive session with Kenyan artists on jazz, improvisation and creativity"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Nov 26, 2020</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">Wynton Marsalis: interactive session with Kenyan artists
+              on jazz, improvisation and creativity</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Wynton Marsalis, an American jazz legend,
+              composer, bandleader, trumpeter and nine-time Grammy winner.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
 
-      <a href="https://www.jazzsymphonic.com/a-kenyan-opera-nyanga-the-runaway-grandmother/" class="bg-paper dark:bg-black flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://www.jazzsymphonic.com/wp-content/uploads/2020/11/Cover-Image-Mary-Olive-Quaint-Photography.jpg" alt="A Kenyan opera: Nyanga, the Runaway Grandmother" class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Nov 17, 2020</span>
-          <h3 class="text-lg leading-snug mt-2 font-semibold">A Kenyan opera: Nyanga, the Runaway Grandmother</h3>
-          <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Nostalgia of all kinds played a part at the live showcase of Nyanga: Runaway Grandmother in Nairobi.</p>
-          <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
-        </div>
-      </a>
+        <a href="https://www.jazzsymphonic.com/a-kenyan-opera-nyanga-the-runaway-grandmother/"
+          class="bg-paper dark:bg-black flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="https://www.jazzsymphonic.com/wp-content/uploads/2020/11/Cover-Image-Mary-Olive-Quaint-Photography.jpg"
+              alt="A Kenyan opera: Nyanga, the Runaway Grandmother"
+              class="w-full h-full object-cover transition duration-500 hover:scale-[1.045]">
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="text-[11.5px] font-semibold text-rust dark:text-brasslight">Nov 17, 2020</span>
+            <h3 class="text-lg leading-snug mt-2 font-semibold">A Kenyan opera: Nyanga, the Runaway Grandmother</h3>
+            <p class="text-sm text-ink/65 dark:text-paper/60 mt-2.5 flex-1">Nostalgia of all kinds played a part at the
+              live showcase of Nyanga: Runaway Grandmother in Nairobi.</p>
+            <span class="text-xs text-ink/50 dark:text-paper/50 mt-4">Maureen Shelmith</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -544,7 +618,8 @@
             <li><a href="index.html" class="hover:text-ink dark:hover:text-paper transition">Home</a></li>
             <li><a href="https://www.jazzsymphonic.com/about-jazz-symphonic/"
                 class="hover:text-ink dark:hover:text-paper transition">About</a></li>
-            <li><a href="stories.html" class="hover:text-ink dark:hover:text-paper transition">Blog &amp; articles</a></li>
+            <li><a href="stories.html" class="hover:text-ink dark:hover:text-paper transition">Blog &amp; articles</a>
+            </li>
             <li><a href="https://www.jazzsymphonic.com/contact/"
                 class="hover:text-ink dark:hover:text-paper transition">Contact</a></li>
           </ul>
